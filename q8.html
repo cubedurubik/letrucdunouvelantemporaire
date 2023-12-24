@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un Duo en Or</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <h1>Un Duo en Or</h1>
+
+    <div class="question">Quel est le défaut qui vous repousse le plus chez une personne ?</div>
+
+    <table>
+        <tr><td onclick="revealAnswer('answer1', this)" data-case-number="1"><div><span>1</span><span> ...</span></div></td></tr>
+        <tr><td onclick="revealAnswer('answer2', this)" data-case-number="2"><div><span>2</span><span> ...</span></div></td></tr>
+        <tr><td onclick="revealAnswer('answer3', this)" data-case-number="3"><div><span>3</span><span> ...</span></div></td></tr>
+        <tr><td onclick="revealAnswer('answer4', this)" data-case-number="4"><div><span>4</span><span> ...</span></div></td></tr>
+        <tr><td onclick="revealAnswer('answer5', this)" data-case-number="5"><div><span>5</span><span> ...</span></div></td></tr>
+        <tr><td onclick="revealAnswer('answer6', this)" data-case-number="6"><div><span>6</span><span> ...</span></div></td></tr>
+        <tr><td onclick="revealAnswer('answer7', this)" data-case-number="7"><div><span>7</span><span> ...</span></div></td></tr>
+
+    </table>
+    <div id="answer1" data-nb="31" class="reveal" style="display:none;">Egoisme</div>
+    <div id="answer2" data-nb="20" class="reveal" style="display:none;">Hypocrisie</div>
+    <div id="answer3" data-nb="16" class="reveal" style="display:none;">Hygiène</div>
+    <div id="answer4" data-nb="11" class="reveal" style="display:none;">Méchanceté</div>
+    <div id="answer5" data-nb="8" class="reveal" style="display:none;">Mensonge</div>
+    <div id="answer6" data-nb="6" class="reveal" style="display:none;">Arrogance</div>
+    <div id="answer7" data-nb="3" class="reveal" style="display:none;">Pas d'humour</div>
+
+
+    <div class="arrow-links">
+        <a href="q7.html">←</a>
+        <a href="q9.html">→</a>
+    </div>
+</body>
+</html>
+<script>
+    function revealAnswer(id, cell) {
+        var answer = document.getElementById(id);
+        if (answer.style.display === "none") {
+            var caseNumber = cell.getAttribute("data-case-number");
+            var percentage = answer.getAttribute("data-nb");
+            cell.innerHTML = '<div><span>' + caseNumber + '</span> ' + answer.innerHTML + ' ' + '<div style="margin-left: 12%;">' + percentage + '%</div></div>';
+        } else {
+            cell.innerHTML = '<div><span>' + caseNumber + '</span> ...</div>';
+        }
+    }
+</script>
+<style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+        text-align: center;
+        margin: 20px;
+        background-color: #f2f2f2;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    .question {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    table {
+        margin: 0 auto;
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    td {
+        width: 250px;
+        height: 50px;
+        border: 1px solid #ddd;
+        cursor: pointer;
+        background-color: #f5f5f5;
+        transition: background-color 0.3s;
+        position: relative;
+        text-align: left;
+    }
+
+    td div {
+        display: flex; 
+        align-items: center; 
+        padding: 0 10px; 
+    }
+
+    td span {
+        font-size: 1.2em; 
+        font-weight: bold;
+        margin-right: 10px; 
+        flex: auto;
+    }
+
+    td:hover {
+        background-color: #e0e0e0;
+    }
+
+    .reveal {
+        display: none;
+    }
+
+    .panel-text {
+        font-size: 0.8em;
+        color: #777;
+        margin-top: 10px;
+        display: inline-block; /* Pour éviter que les flèches ne soient sur une nouvelle ligne */
+    }
+
+    .arrow-links {
+        font-size: 0.8em;
+        margin-top: 10px;
+    }
+
+    .arrow-links a {
+        margin: 0 5px;
+        text-decoration: none; /* Pour enlever le souligné */
+        color: inherit; /* Pour utiliser la couleur par défaut du texte */
+    }
+
+
+</style>
